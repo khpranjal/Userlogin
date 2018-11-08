@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hoisting</title>
+<meta charset="utf-8">
+<script>
+var icecream=["vanilla","chocolate","strawberry","butterscotch","raspberry"];
+function init(){
+	var flavourButton=document.getElementById("getFlavourButton");
+	flavourButton.onclick= checkFlavour;
+}
+function checkFlavour(){
+	console.log(flavour);
+	if(icecream.length>0){
+	var div=document.getElementById("container");
+	var flavour=document.getElementById("flavour").value;
+	if (flavour){
+	for(var i=0;i< icecream.length;i++){
+		if(icecream[i]== flavour){
+		var found = true;
+		div.innerHTML ="We have "+ flavour;
+		break;		
+		}
+		}
+if(!found){
+	div.innerHTML="Sorry, we don't have"+flavour;
+}
+	}
+	}
+console.log(flavour);
+}
+window.onload=init;
+</script>
+</head>
+<body>
+<div id="container">Enter a flavour of icecream you'd like:</div>
+<form>
+<input type="text" id="flavour">
+<input type="button" id="getFlavourButton" value="Check flavour">
+</form>
+
+</body>
+</html>
